@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PrimeTool Cloud — JSON Formatter & Validator</title>
+    <meta name="description"
+        content="PrimeTool Cloud — Free JSON Formatter & Validator. Client-side, privacy-first, fast." />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <img src="images/primetool-cloud-logo.png" alt="PrimeTool Cloud" class="logo" />
+                <div class="tagline">JSON Formatter & Validator</div>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="#formatter" class="nav-link">Formatter</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#learn" class="nav-link">Learn</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="/support" class="btn btn-primary">Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Formatter Section -->
+        <section id="formatter" class="panel formatter-panel">
+            <h2 class="section-title">Raw JSON</h2>
+            <p class="lead">Paste or type your JSON into the Raw JSON box. Click <strong>Process</strong> to validate
+                and format. All processing occurs in your browser.</p>
+
+            <div class="editor-wrap">
+                <div class="editor-column">
+                    <textarea id="rawInput" class="editor-area" placeholder='Paste raw JSON here...'></textarea>
+
+                    <div class="controls">
+                        <div class="left-controls">
+                            <label for="indent">Indentation</label>
+                            <select id="indent" aria-label="Select indentation">
+                                <option value="2">2 spaces</option>
+                                <option value="4" selected>4 spaces</option>
+                                <option value="8">8 spaces</option>
+                            </select>
+
+                            <label class="checkbox"><input type="checkbox" id="autoFixQuotes" checked> Fix common
+                                issues</label>
+                        </div>
+
+                        <div class="right-controls">
+                            <button id="processBtn" class="btn btn-primary">Process</button>
+                            <button id="clearBtn" class="btn btn-ghost">Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output-column" id="outputColumn" aria-hidden="true">
+                    <label class="editor-label">Formatted JSON</label>
+                    <pre id="formattedOutput" class="output-area" tabindex="0"></pre>
+
+                    <div class="output-actions">
+                        <button id="copyBtn" class="btn">Copy</button>
+                        <button id="downloadBtn" class="btn">Download</button>
+                        <button id="minifyBtn" class="btn btn-ghost">Minify</button>
+                        <label for="tabsSelect">Tabs</label>
+                        <select id="tabsSelect">
+                            <option value="2">2</option>
+                            <option value="4" selected>4</option>
+                        </select>
+                    </div>
+
+                    <div id="message" role="status" aria-live="polite" class="message"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="panel about-panel">
+            <h3>About PrimeTool Cloud</h3>
+            <p>Experience effortless JSON formatting and validation with PrimeTool Cloud! Our tool works entirely in
+                your browser —
+                no data is sent to any server. Paste, format, validate, and explore JSON instantly.
+                Designed with simplicity and joy in mind, we make working with JSON satisfying and stress-free.</p>
+        </section>
+
+        <!-- Learn -->
+        <section id="learn" class="panel">
+            <h3>Learn about JSON</h3>
+            <ul class="links">
+                <li><a href="https://www.json.org/json-en.html" target="_blank" rel="noopener">What is JSON?</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON" target="_blank"
+                        rel="noopener">MDN — JSON guide</a></li>
+                <li><a href="https://json-schema.org/" target="_blank" rel="noopener">JSON Schema</a></li>
+            </ul>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="panel">
+            <h3>FAQ</h3>
+            <details>
+                <summary>Is my JSON sent to your servers?</summary>
+                <p>No — everything is processed locally in your browser.</p>
+            </details>
+            <details>
+                <summary>What browsers are supported?</summary>
+                <p>Modern browsers with ES6 support (Chrome, Edge, Firefox, Safari).</p>
+            </details>
+        </section>
+
+        <!-- Release notes / contact simple -->
+        <section id="release" class="panel">
+            <h3>Release notes</h3>
+            <ul>
+                <li>v1.0.0 — Initial release</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="panel">
+            <h3>Contact</h3>
+            <p>Questions or feedback? Email: <a href="mailto:m.ameerdev@gmail.com">m.ameerdev@gmail.com</a></p>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">&copy; 2025 PrimeTool Cloud — Built by a Pakistani developer</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
