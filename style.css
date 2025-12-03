@@ -224,6 +224,28 @@ body {
     margin: 6px 0
 }
 
+.site-footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #f0f4ff;   /* optional: matches your theme */
+    margin-top: 40px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.fixes-list {
+    background: #f0f9ff;
+    border: 1px solid #dbeafe;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-top: 10px;
+    color: #1e40af;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+
 /* responsive */
 @media(max-width:980px) {
     .editor-wrap {

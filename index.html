@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>PrimeTool Cloud — JSON Formatter & Validator</title>
-    <meta name="description"
-        content="PrimeTool Cloud — Free JSON Formatter & Validator. Client-side, privacy-first, fast." />
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PrimeTool Cloud — Free Online JSON Formatter & Validator</title>
+  <meta name="description" content="PrimeTool Cloud: free, privacy‑first online JSON formatter, validator and beautifier. Format, validate, minify or pretty‑print JSON instantly in your browser — no signup required."/>
+  <meta name="keywords" content="JSON, JSON formatter, online JSON formatter, JSON validator, JSON beautifier, pretty print JSON online, minify JSON, JSON viewer, free JSON tool, client-side JSON formatter, validate JSON online" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -23,7 +23,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#learn" class="nav-link">Learn</a>
                 <a href="#faq" class="nav-link">FAQ</a>
-                <a href="/support" class="btn btn-primary">Support</a>
+                <!-- <a href="/support" class="btn btn-primary">Support</a> -->
             </nav>
         </div>
     </header>
@@ -60,6 +60,8 @@
                     </div>
                 </div>
 
+                <div id="fixesList" class="fixes-list" style="display:none;"></div>
+
                 <div class="output-column" id="outputColumn" aria-hidden="true">
                     <label class="editor-label">Formatted JSON</label>
                     <pre id="formattedOutput" class="output-area" tabindex="0"></pre>
@@ -82,44 +84,172 @@
 
         <!-- About -->
         <section id="about" class="panel about-panel">
-            <h3>About PrimeTool Cloud</h3>
-            <p>Experience effortless JSON formatting and validation with PrimeTool Cloud! Our tool works entirely in
-                your browser —
-                no data is sent to any server. Paste, format, validate, and explore JSON instantly.
-                Designed with simplicity and joy in mind, we make working with JSON satisfying and stress-free.</p>
+            <h3>About JSON Formatter & Validator</h3>
+            <p>
+                JSON Formatter & Validator is designed to make JSON <b>debugging, learning, and exploration
+                    effortless</b>.
+                Whether you're a beginner trying to understand JSON or a developer dealing with messy, one-line data,
+                this tool ensures clarity and comfort. Many times JSON comes in a <b>single compressed line</b>,
+                as a <b>stringified object</b>, or as a <b>difficult-to-read list</b>. PrimeTool Cloud instantly
+                transforms
+                all such input into a clean, readable format. Since it works entirely <b>within your browser</b>,
+                your data never leaves your device—making it <b>fast, secure, and privacy-friendly</b>.
+            </p>
+
+            <p>
+                With built-in <b>JSON validation</b>, <b>standard-compliant formatting</b>, and <b>smart
+                    indentation</b>,
+                the tool helps you quickly spot errors and understand complex structures. It also provides convenient
+                features like <b>Prettify</b>, <b>Minify</b>, <b>Copy to Clipboard</b>, and <b>Download JSON</b> to
+                streamline your workflow.
+                Created with simplicity and precision in mind, JSON Formatter & Validator ensures your JSON experience
+                is
+                <b>stress-free, efficient, and enjoyable</b>.
+            </p>
         </section>
+
+
 
         <!-- Learn -->
         <section id="learn" class="panel">
             <h3>Learn about JSON</h3>
+
+            <p>
+                JSON (<b>JavaScript Object Notation</b>) is a lightweight and human-readable data format widely used for
+                storing and exchanging information. It was created to offer a simple, language-independent way to
+                represent
+                structured data. Because of its clean syntax and ease of parsing, JSON has become the <b>standard
+                    format</b>
+                for communication between browsers, servers, mobile apps, and APIs.
+            </p>
+
+            <p>
+                JSON plays a crucial role in <b>network communication</b>, especially in REST APIs, because it is
+                compact, easy to
+                transmit, and fast for machines to process. Whether you're sending data from a client to a server,
+                configuring
+                applications, handling API responses, or storing structured information, JSON provides an efficient,
+                flexible, and widely supported solution.
+            </p>
+
+            <p>To learn more about JSON, explore these trusted resources:</p>
+
             <ul class="links">
                 <li><a href="https://www.json.org/json-en.html" target="_blank" rel="noopener">What is JSON?</a></li>
                 <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON" target="_blank"
-                        rel="noopener">MDN — JSON guide</a></li>
+                        rel="noopener">
+                        MDN — JSON Guide
+                    </a></li>
                 <li><a href="https://json-schema.org/" target="_blank" rel="noopener">JSON Schema</a></li>
             </ul>
         </section>
 
+
         <!-- FAQ -->
         <section id="faq" class="panel">
             <h3>FAQ</h3>
+
             <details>
                 <summary>Is my JSON sent to your servers?</summary>
-                <p>No — everything is processed locally in your browser.</p>
+                <p>No — your JSON is <b>never</b> uploaded or stored anywhere. All formatting, validation, and
+                    processing
+                    happens entirely in your browser for complete privacy and security.</p>
             </details>
+
             <details>
                 <summary>What browsers are supported?</summary>
-                <p>Modern browsers with ES6 support (Chrome, Edge, Firefox, Safari).</p>
+                <p>Any modern browser with ES6 support, such as <b>Chrome</b>, <b>Edge</b>, <b>Firefox</b>, or
+                    <b>Safari</b>,
+                    works perfectly.
+                </p>
             </details>
+
+            <details>
+                <summary>Why does JSON need formatting?</summary>
+                <p>JSON often comes in a single long line or poorly structured form, which makes it hard to read.
+                    Formatting (pretty-printing) adds indentation and structure to make the data easier to understand.
+                </p>
+            </details>
+
+            <details>
+                <summary>What standards does this formatter follow?</summary>
+                <p>We follow the official <b>ECMA-404</b> JSON standard and strict JSON syntax rules — including
+                    structural validation,
+                    string correctness, and proper use of arrays, objects, and values.</p>
+            </details>
+
+            <details>
+                <summary>Can this tool fix broken or malformed JSON?</summary>
+                <p>Yes — common issues like missing quotes, unescaped characters, or incorrect commas can be
+                    automatically
+                    corrected using the <b>Fix common issues</b> option.</p>
+            </details>
+
+            <details>
+                <summary>Does the tool support indentation and customization?</summary>
+                <p>Yes, you can choose your preferred indentation (2, 4, or 8 spaces) and adjust how your formatted JSON
+                    looks.</p>
+            </details>
+
+            <details>
+                <summary>Can I download or copy my formatted JSON?</summary>
+                <p>Absolutely. You can easily <b>copy</b> the output, <b>download</b> it as a file, or even
+                    <b>minify</b> it
+                    for compact usage.
+                </p>
+            </details>
+
+            <details>
+                <summary>Is this tool suitable for learning JSON?</summary>
+                <p>Yes! The formatter helps beginners clearly understand JSON structure, keys, values, lists, and
+                    objects.
+                    It’s excellent for debugging, practicing, and learning how proper JSON formatting works.</p>
+            </details>
+
+            <details>
+                <summary>Why is JSON important in network communication?</summary>
+                <p>JSON is lightweight, fast to parse, and universally supported, making it the most common format for
+                    API
+                    communication between servers, browsers, and mobile apps.</p>
+            </details>
+
+            <details>
+                <summary>Does this tool store any history or logs?</summary>
+                <p>No — nothing is stored. Once you refresh or close the page, all data disappears immediately.</p>
+            </details>
+
         </section>
+
 
         <!-- Release notes / contact simple -->
         <section id="release" class="panel">
-            <h3>Release notes</h3>
+            <h3>Release Notes</h3>
             <ul>
-                <li>v1.0.0 — Initial release</li>
+                <li>
+                    <strong>v1.0.0 — Initial Release</strong>
+                    <ul>
+                        <li>Implemented full JSON validation based on the official <b>RFC 8259</b> standard.</li>
+                        <li>Added clean, modern UI with improved layout and readability.</li>
+                        <li>Introduced a dedicated <b>Raw JSON</b> input panel with fixed height and background styling.
+                        </li>
+                        <li>Added optional <b>Fix Common Issues</b> feature for missing quotes, commas, and structural
+                            errors.</li>
+                        <li>Implemented <b>JSON formatting (pretty-print)</b> with selectable indentation (2, 4, or 8
+                            spaces).</li>
+                        <li>Added <b>Minify</b> option to compress JSON into a single-line string.</li>
+                        <li>Added <b>Copy</b> and <b>Download</b> options for quick export of JSON output.</li>
+                        <li>Introduced structured <b>Learn About JSON</b> section with beginner-friendly explanations.
+                        </li>
+                        <li>Added an expanded <b>FAQ</b> covering validation, formatting, indentation, browser support,
+                            privacy, and troubleshooting.</li>
+                        <li>Ensured <b>privacy-first</b> architecture — all processing happens completely in your
+                            browser.</li>
+                        <li>Optimized responsive design for smooth usage on desktop, tablet, and mobile screens.</li>
+                    </ul>
+                </li>
             </ul>
         </section>
+
 
         <section id="contact" class="panel">
             <h3>Contact</h3>
@@ -129,7 +259,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="container">&copy; 2025 PrimeTool Cloud — Built by a Pakistani developer</div>
+        <div class="container">&copy; 2025 PrimeTool Cloud</div>
     </footer>
 
     <script src="script.js"></script>

@@ -32,43 +32,55 @@
     }
 
     function process() {
-    const indent = parseInt(indentSelect.value, 10) || 4;
-    let raw = rawInput.value.trim();
-    let fixes = [];
+        const indent = parseInt(indentSelect.value, 10) || 4;
+        let raw = rawInput.value.trim();
+        let fixes = [];
 
-    // Step 1: Auto-correct Python-style literals
-    raw = raw.replace(/\bTrue\b/g, () => { fixes.push("Converted True → true"); return "true"; });
-    raw = raw.replace(/\bFalse\b/g, () => { fixes.push("Converted False → false"); return "false"; });
-    raw = raw.replace(/\bNone\b/g, () => { fixes.push("Converted None → null"); return "null"; });
-
-    // Step 2: Detect if entire input is a JSON string wrapped in quotes
-    if (/^"(.*)"$/s.test(raw)) {
-        raw = raw.slice(1, -1);          // remove outer quotes
-        raw = raw.replace(/\\"/g, '"');  // unescape inner quotes
-        fixes.push("Detected stringified JSON → unescaped");
-    }
-
-    try {
-        const parsed = JSON.parse(raw);
-        const formatted = JSON.stringify(parsed, null, indent);
-        formattedOutput.textContent = formatted;
-        outputColumn.style.display = "block";
-
-        if (fixes.length > 0) {
-            showMessage('success', "Auto-fixes applied: " + fixes.join(", "));
-        } else {
-            showMessage('success', "JSON successfully formatted");
+        // Step 0: Remove outer single or double quotes
+        if ((raw.startsWith("'") && raw.endsWith("'")) || (raw.startsWith('"') && raw.endsWith('"'))) {
+            raw = raw.slice(1, -1);
+            fixes.push("Removed outer quotes");
         }
-    } catch (err) {
-        formattedOutput.textContent = "Invalid JSON: " + err.message;
-        outputColumn.style.display = "block";
-        showMessage('error', "Invalid JSON: " + err.message);
-        console.error(err);
+
+        // Step 1: Auto-correct Python-style literals
+        raw = raw.replace(/\bTrue\b/g, () => { fixes.push("Converted True → true"); return "true"; });
+        raw = raw.replace(/\bFalse\b/g, () => { fixes.push("Converted False → false"); return "false"; });
+        raw = raw.replace(/\bNone\b/g, () => { fixes.push("Converted None → null"); return "null"; });
+
+        // Step 2: Fix inner single quotes
+        const before = raw;
+        raw = raw.replace(/'/g, '"');
+        if (raw !== before) fixes.push("Converted inner single quotes → double quotes");
+
+        // Step 3: Fix unquoted object keys
+        raw = raw.replace(/([{,]\s*)([A-Za-z_][A-Za-z0-9_]*)\s*:/g, (match, prefix, key) => {
+            fixes.push(`Fixed key → "${key}"`);
+            return `${prefix}"${key}":`;
+        });
+
+        const fixesListEl = document.getElementById('fixesList');
+        fixesListEl.innerHTML = "";
+
+        try {
+            const parsed = JSON.parse(raw);
+            const formatted = JSON.stringify(parsed, null, indent);
+            formattedOutput.textContent = formatted;
+            outputColumn.style.display = "block";
+
+            if (fixes.length > 0) {
+                showMessage('success', "Auto-fixes applied");
+                fixesListEl.style.display = "block";
+                fixesListEl.innerHTML = "<strong>Fixes applied:</strong><ul>" + fixes.map(f => `<li>${f}</li>`).join("") + "</ul>";
+            } else {
+                showMessage('success', "JSON successfully formatted");
+            }
+        } catch (err) {
+            formattedOutput.textContent = "Invalid JSON: " + err.message;
+            outputColumn.style.display = "block";
+            showMessage('error', "Invalid JSON: " + err.message);
+            console.error(err);
+        }
     }
-}
-
-
-
 
     processBtn.addEventListener('click', process);
     clearBtn.addEventListener('click', () => { rawInput.value = ''; formattedOutput.textContent = ''; outputColumn.style.display = 'none'; showMessage('Cleared'); });
