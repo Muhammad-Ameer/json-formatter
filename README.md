@@ -72,9 +72,6 @@ View results instantly in the Formatted JSON output panel.
 
 🔗 https://primetoolcloud.com/json-formatter
 
-
-Your support helps me build more free, open-source tools!
-
 📬 Feedback / Suggestions
 
 Feel free to open an issue if you want new features or find a bug.
