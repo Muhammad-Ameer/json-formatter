@@ -1,0 +1,24 @@
+[build]
+  publish = "./"
+  command = ""
+
+[[redirects]]
+  from = "/json-formatter/*"
+  to = "/json-formatter/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/qr-generator/*"
+  to = "/qr-generator/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/color-picker/*"
+  to = "/color-picker/index.html"
+  status = 200
+
+# You can keep adding tools here later:
+# [[redirects]]
+#   from = "/newtool/*"
+#   to = "/newtool/index.html"
+#   status = 200
