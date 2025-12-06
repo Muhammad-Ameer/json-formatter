@@ -73,11 +73,6 @@ View results instantly in the Formatted JSON output panel.
 🔗 https://primetoolcloud.com/json-formatter
 
 
-💖 Support the Project
-
-If this tool helps you, consider supporting me:
-🔗 https://primetoolcloud.com/support
-
 Your support helps me build more free, open-source tools!
 
 📬 Feedback / Suggestions
